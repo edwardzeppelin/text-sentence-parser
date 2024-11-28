@@ -28,7 +28,7 @@ int main() {
                 iss >> noskipws;
                 while (iss.get(sign)) {
                     sentence += sign;
-                    if (sign == '?' || sign == '!') {
+                    if (sign == '?' || sign == '!' || sign == '.') {
                         break;
                     }
                 }
