@@ -17,7 +17,9 @@ int main() {
     string line;
     string quest;
     string amplify;
+    char ch;
 
+    /*
     while (getline(in, line)) {
             istringstream iss(line);
             string sentence;
@@ -40,7 +42,31 @@ int main() {
                     amplify += sentence + '\n';
                 }
             }
+    }*/
+
+    string sentence;
+    while (getline(in, line)) {
+        istringstream iss(line);
+        char ch;
+
+        while (iss.get(ch)) {
+            sentence += ch;
+
+            if (ch == '?' || ch == '!' || ch == '.') {
+                if (ch == '?') {
+                    quest += sentence + '\n';
+                }
+                else if (ch == '!') {
+                    amplify += sentence + '\n';
+                }
+                sentence.clear();
+            }
+        }
+        if (!sentence.empty() && sentence.back() != '?' && sentence.back() != '!' && sentence.back() != '.') {
+            sentence += ' ';
+        }
     }
+
 
     in.close();
 
